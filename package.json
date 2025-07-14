@@ -1,0 +1,25 @@
+{
+  "name": "wabase",
+  "version": "3.5.1",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "NODE_ENV=development nodemon index.js"
+  },
+  "keywords": [],
+  "author": "Bayu Mahadika",
+  "license": "ISC",
+  "description": "Script Base WhatsApp",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "baileys": "^6.7.18",
+    "chalk": "^5.4.1",
+    "moment-timezone": "^0.5.48",
+    "pino": "^9.7.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
