@@ -5,9 +5,9 @@ import {
   jidDecode,
   jidNormalizedUser,
   getContentType,
-  isJidNewsletter,
+  isJidNewsLetter,
   jidEncode,
-} from "baileys";
+} from "@bayumahadika/baileys";
 import notifyEvent from "../utils/notifyEvent.js";
 
 export default async function messagesUpsert(bot, m) {
@@ -18,7 +18,7 @@ export default async function messagesUpsert(bot, m) {
     m.isGroup = isJidGroup(m.chatId);
     m.isPrivate = isJidUser(m.chatId);
     m.isStory = isJidStatusBroadcast(m.chatId);
-    m.isNewsletter = isJidNewsletter(m.chatId);
+    m.isNewsletter = isJidNewsLetter(m.chatId);
     m.senderId = m.isNewsletter
       ? ""
       : m.isGroup || m.isStory

@@ -15,8 +15,8 @@
     "nodemon": "^3.1.9"
   },
   "dependencies": {
+    "@bayumahadika/baileys": "^6.10.7",
     "axios": "^1.9.0",
-    "baileys": "^6.7.18",
     "chalk": "^5.4.1",
     "moment-timezone": "^0.5.48",
     "pino": "^9.7.0",
