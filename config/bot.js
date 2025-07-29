@@ -1,18 +1,17 @@
 import fs from "fs";
 import path from "path";
-import axios from "axios";
+import Github from "../lib/Github.js";
 
 var repoDATAWANumber = "";
-var rawDATAWANumber = repoDATAWANumber
-  .replace("https://github", "https://raw.githubusercontent")
-  .replace("/blob/", "/");
 
 const pkg = JSON.parse(fs.readFileSync("package.json"));
 
 global.bot = {
   name: "Bayu Mahadika",
   number: "",
-  numbers: repoDATAWANumber ? (await axios.get(rawDATAWANumber)).data : null,
+  numbers: repoDATAWANumber
+    ? await Github.fetchGithubJson(repoDATAWANumber)
+    : null,
   version: pkg["version"],
   prefix: ".",
   splitArgs: "|",

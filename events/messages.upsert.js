@@ -89,9 +89,9 @@ export default async function messagesUpsert(bot, m) {
       notifyEvent(
         "Message Upsert",
         `
-Dari: ${m.senderId}
-Nama: ${m.pushName || "NoName"}
-Pesan: ${m.text}
+From: ${m.senderId}
+Name: ${m.pushName || "NoName"}
+Text: ${m.text}
 `.trim(),
       );
       for await (let command of global.bot.commands) {
@@ -113,15 +113,6 @@ Pesan: ${m.text}
           await command.handler(bot, m);
           return;
         }
-      }
-      switch (m.cmd) {
-        case "menu-case":
-          {
-            m.reply("Menu Case");
-          }
-          break;
-        default:
-          break;
       }
     } catch (err) {
       notifyEvent(

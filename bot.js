@@ -61,10 +61,12 @@ import messagesUpsert from "./events/messages.upsert.js";
       console.log(`\x1b[44;1m\x20PAIRING CODE\x20\x1b[0m\x20${code}`);
     }, 5000);
   }
+
+  /* Connection Update */
   bot.ev.on("connection.update", async ({ connection, lastDisconnect }) => {
     if (connection === "close") {
       console.log(lastDisconnect.error);
-      const { statusCode, error } = lastDisconnect.error.output.payload;
+      const { statusCode, error } = lastDisconnect.error.output?.payload;
       if (statusCode === 401 && error === "Unauthorized") {
         await fs.promises.rm("session", {
           recursive: true,
@@ -98,7 +100,11 @@ import messagesUpsert from "./events/messages.upsert.js";
       console.log("Berhasil terhubung dengan: " + bot.user.id.split(":")[0]);
     }
   });
+
+  /* Credentials Update */
   bot.ev.on("creds.update", session.saveCreds);
+
+  /* Message Upsert */
   bot.ev.on("messages.upsert", ({ messages }) =>
     messagesUpsert(bot, messages[0]),
   );

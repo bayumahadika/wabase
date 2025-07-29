@@ -1,5 +1,4 @@
 export function handler(bot, m) {
-  console.log(m);
   m.reply("Ini sebuah perintah restart");
   return bot;
 }
